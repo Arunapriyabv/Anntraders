@@ -27,14 +27,12 @@
 </template>
 
 <script>
-import axios from 'axios';
 export default {
   data() {
     return {
       feedbackText: "",
       file: null,
       successMessage: "",
-      errorMessage: ""
     };
   },
   methods: {
@@ -54,17 +52,6 @@ export default {
 
       // Simulate sending data to the server
       console.log("Form Data Submitted:", this.feedbackText, this.file);
-       try {
-        // Replace with your Java API endpoint
-        const response = await axios.post('https://your-api-endpoint.com/submit-feedback', formData, {
-          headers: {
-            'Content-Type': 'multipart/form-data', // For file uploads
-          },
-        });
-       }
-       catch (error){
-        this.errorMessage = "There was an issue submitting your feedback.";
-       }
 
       // Reset form and show success message
       this.feedbackText = "";
